@@ -63,7 +63,9 @@ export function TreasuryNetworkGraph({ data, className }: TreasuryNetworkGraphPr
         }
       });
 
-      renderer.getCamera().animatedSetState({ ratio: 2.1, angle: 0 });
+      const camera = renderer.getCamera();
+      const currentState = camera.getState();
+      camera.setState({ ...currentState, ratio: 2.1, angle: 0 });
       sigmaRef.current = renderer;
     };
 
